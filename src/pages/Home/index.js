@@ -128,7 +128,7 @@ const Page = () => {
         <h3>Contactez-nous</h3>
         <address>45 avenue de la Bachelette, 75000 Paris</address>
         <div>01 23 45 67 89</div>
-        <div>contact@774events.com</div>
+        <div>contact@724events.com</div>
         <div>
           <a href="#twitch">
             <Icon name="twitch" />
