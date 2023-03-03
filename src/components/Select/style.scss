@@ -1,3 +1,5 @@
+@import 'src/colors.scss';
+
 .SelectContainer {
   width: 308px;
   min-height: 86px;
@@ -44,10 +46,19 @@
     }
   }
   input {
+    appearance: none;
+    border-radius: 50%;
+    border: 1px solid #000;
     width: 16px;
     height: 16px;
     min-width: 16px;
     margin-right: 16px;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:checked {
+      background-color: $primary;
+    }
   }
   button {
     border: none;
@@ -55,6 +66,7 @@
     height: 32px;
     margin-top: 16px;
     margin-right: 8px;
+    cursor: pointer;
     &.close {
       transform: rotate(180deg);
     }

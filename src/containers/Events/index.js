@@ -1,11 +1,11 @@
-import { useState } from "react";
-import EventCard from "../../components/EventCard";
-import Select from "../../components/Select";
-import { useData } from "../../contexts/DataContext";
-import Modal from "../Modal";
-import ModalEvent from "../ModalEvent";
+import { useState } from 'react';
+import EventCard from '../../components/EventCard';
+import Select from '../../components/Select';
+import { useData } from '../../contexts/DataContext';
+import Modal from '../Modal';
+import ModalEvent from '../ModalEvent';
 
-import "./style.css";
+import './style.css';
 
 const PER_PAGE = 9;
 
@@ -16,7 +16,7 @@ const EventList = () => {
   const filteredEvents = (
     (!type
       ? data?.events
-      : data?.events) || []
+      : data?.events.filter((event) => event.type === type)) || []
   ).filter((event, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&
@@ -36,7 +36,7 @@ const EventList = () => {
     <>
       {error && <div>An error occured</div>}
       {data === null ? (
-        "loading"
+        'loading'
       ) : (
         <>
           <h3 className="SelectTitle">Catégories</h3>
