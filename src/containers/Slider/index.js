@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useData } from '../../contexts/DataContext';
 import { getMonth } from '../../helpers/Date';
 
@@ -11,8 +11,10 @@ const Slider = () => {
     (evtA, evtB) => new Date(evtB.date) - new Date(evtA.date)
   );
   const byDateDescLength = byDateDesc?.length;
+  const ref = useRef();
   const nextCard = () => {
-    setTimeout(
+    clearTimeout(ref.current);
+    ref.current = setTimeout(
       () => setIndex(index < byDateDescLength - 1 ? index + 1 : 0),
       5000
     );
@@ -20,6 +22,10 @@ const Slider = () => {
   useEffect(() => {
     nextCard();
   });
+  const handleClick = (idx) => {
+    setIndex(idx);
+    nextCard();
+  };
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -47,6 +53,7 @@ const Slider = () => {
               type="radio"
               name="radio-button"
               checked={index === radioIdx}
+              onClick={() => handleClick(radioIdx)}
             />
           ))}
         </div>

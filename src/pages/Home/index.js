@@ -17,7 +17,7 @@ const Page = () => {
   const events = data?.events.sort(
     (evtA, evtB) => new Date(evtB.date) - new Date(evtA.date)
   );
-  const last = events[0];
+  const last = events && events[0];
   return (
     <>
       <header>
