@@ -33,7 +33,7 @@ EventCard.propTypes = {
   imageSrc: PropTypes.string,
   date: PropTypes.instanceOf(Date).isRequired,
   title: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   small: PropTypes.bool,
 };
 
@@ -41,6 +41,7 @@ EventCard.defaultProps = {
   imageAlt: 'image',
   imageSrc: '',
   title: '',
+  label: '',
   small: false,
 };
 
