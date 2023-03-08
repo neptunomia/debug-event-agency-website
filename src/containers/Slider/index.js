@@ -7,10 +7,13 @@ import './style.scss';
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const byDateDesc = data?.focus.sort(
     (evtA, evtB) => new Date(evtB.date) - new Date(evtA.date)
   );
   const byDateDescLength = byDateDesc?.length;
+
   const ref = useRef();
   const nextCard = () => {
     clearTimeout(ref.current);
@@ -19,12 +22,39 @@ const Slider = () => {
       5000
     );
   };
-  useEffect(() => {
-    nextCard();
-  });
+
   const handleClick = (idx) => {
     setIndex(idx);
   };
+  const handlePauseIsTrue = (e) => {
+    e.preventDefault();
+    if (e.code === 'Space') {
+      setIsPaused(true);
+      clearTimeout(ref.current);
+    }
+  };
+  const handlePauseIsFalse = (e) => {
+    e.preventDefault();
+    if (e.code === 'Space') {
+      setIsPaused(false);
+      nextCard();
+    }
+  };
+
+  useEffect(() => {
+    if (!isPaused) {
+      nextCard();
+    }
+
+    document.addEventListener('keydown', handlePauseIsTrue);
+    document.addEventListener('keydown', handlePauseIsFalse);
+
+    return () => {
+      document.removeEventListener('keydown', handlePauseIsTrue);
+      document.removeEventListener('keydown', handlePauseIsFalse);
+    };
+  });
+
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -48,7 +78,7 @@ const Slider = () => {
         <div className="SlideCard__pagination">
           {byDateDesc?.map((event, radioIdx) => (
             <input
-            readOnly
+              readOnly
               key={`${event.title}-${index}`}
               type="radio"
               name="radio-button"
