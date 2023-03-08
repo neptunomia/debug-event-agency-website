@@ -24,7 +24,6 @@ const Slider = () => {
   });
   const handleClick = (idx) => {
     setIndex(idx);
-    nextCard();
   };
   return (
     <div className="SlideCardList">
