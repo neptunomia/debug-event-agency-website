@@ -27,15 +27,15 @@ const Slider = () => {
     setIndex(idx);
   };
   const handlePauseIsTrue = (e) => {
-    e.preventDefault();
     if (e.code === 'Space') {
+      e.preventDefault();
       setIsPaused(true);
       clearTimeout(ref.current);
     }
   };
   const handlePauseIsFalse = (e) => {
-    e.preventDefault();
     if (e.code === 'Space') {
+      e.preventDefault();
       setIsPaused(false);
       nextCard();
     }
