@@ -27,8 +27,8 @@ const Page = () => {
         <section className="SliderContainer">
           <Slider />
         </section>
-        <section className="ServicesContainer">
-          <h2 id="nos-services" className="Title" data-testid="services-testid">
+        <section id="nos-services" className="ServicesContainer">
+          <h2 className="Title" data-testid="services-testid">
             Nos services
           </h2>
           <p>Nous organisons des événements sur mesure partout dans le monde</p>
@@ -58,16 +58,12 @@ const Page = () => {
             </ServiceCard>
           </div>
         </section>
-        <section className="EventsContainer">
-          <h2 id="nos-realisations" className="Title">
-            Nos réalisations
-          </h2>
+        <section id="nos-realisations" className="EventsContainer">
+          <h2 className="Title">Nos réalisations</h2>
           <EventList />
         </section>
-        <section className="PeoplesContainer">
-          <h2 id="notre-equipe" className="Title">
-            Notre équipe
-          </h2>
+        <section id="notre-equipe" className="PeoplesContainer">
+          <h2 className="Title">Notre équipe</h2>
           <p>Une équipe d’experts dédiée à l’organisation de vos événements</p>
           <div className="ListContainer" data-testid="people-card-testid">
             <PeopleCard
