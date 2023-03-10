@@ -28,13 +28,13 @@ const Page = () => {
           <Slider />
         </section>
         <section className="ServicesContainer">
-          <h2 id="nos-services" className="Title">
+          <h2 id="nos-services" className="Title" data-testid="services-testid">
             Nos services
           </h2>
           <p>Nous organisons des événements sur mesure partout dans le monde</p>
           <div className="ListContainer">
             <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
-              <h3>Soirée d’entreprise</h3>
+              <h3 data-testid="soiree-testid">Soirée d’entreprise</h3>
               Une soirée d’entreprise vous permet de réunir vos équipes pour un
               moment convivial afin de valoriser votre société en projetant une
               image dynamique. Nous vous proposons d’organiser pour vous vos
@@ -49,7 +49,7 @@ const Page = () => {
               évènement un succès.
             </ServiceCard>
             <ServiceCard imageSrc="/images/sophia-sideri-LFXMtUuAKK8-unsplash1.png">
-              <h3>Experience digitale</h3>
+              <h3 data-testid="experience-testid">Expérience digitale</h3>
               Notre agence experte en contenus immersifs offre des services de
               conseil aux entreprises, pour l’utilisation de la réalité
               virtuelle, de la réalité augmentée et de la réalité mixte, de

@@ -42,6 +42,12 @@ describe('When the page is created', () => {
     expect(screen.getByText('Luís'));
     expect(screen.getByText('CXO'));
   });
+  it('a list of services is displayed', () => {
+    render(<Home />);
+    expect(screen.getByTestId('services-testid'));
+    expect(screen.getByTestId('soiree-testid'));
+    expect(screen.getByTestId('experience-testid'));
+  });
   it('a footer is displayed', () => {
     render(<Home />);
     expect(screen.getByTestId('footer-testid')).toBeInTheDocument();
