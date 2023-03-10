@@ -20,6 +20,7 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         setSending(false);
         onSuccess();
+        document.getElementById('form').reset();
       } catch (err) {
         setSending(false);
         onError(err);
@@ -28,11 +29,21 @@ const Form = ({ onSuccess, onError }) => {
     [onSuccess, onError]
   );
   return (
-    <form onSubmit={sendContact}>
+    <form id="form" onSubmit={sendContact}>
       <div className="row">
         <div className="col">
-          <Field placeholder="" label="Nom" />
-          <Field placeholder="" label="Prénom" />
+          <Field
+            placeholder=""
+            label="Nom"
+            name="Nom"
+            type={FIELD_TYPES.INPUT_TEXT}
+          />
+          <Field
+            placeholder=""
+            label="Prénom"
+            name="Prénom"
+            type={FIELD_TYPES.INPUT_TEXT}
+          />
           <Select
             selection={['Personnel', 'Entreprise']}
             onChange={() => null}
@@ -40,7 +51,12 @@ const Form = ({ onSuccess, onError }) => {
             type="large"
             titleEmpty
           />
-          <Field placeholder="" label="Email" />
+          <Field
+            placeholder=""
+            label="Email"
+            name="Email"
+            type={FIELD_TYPES.INPUT_EMAIL}
+          />
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
             {sending ? 'En cours' : 'Envoyer'}
           </Button>
@@ -49,6 +65,7 @@ const Form = ({ onSuccess, onError }) => {
           <Field
             placeholder="message"
             label="Message"
+            name="Message"
             type={FIELD_TYPES.TEXTAREA}
           />
         </div>

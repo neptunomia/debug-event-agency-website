@@ -1,4 +1,4 @@
-@import "src/colors.scss";
+@import 'src/colors.scss';
 
 .inputField {
   display: flex;
@@ -25,7 +25,7 @@ input {
     color: $primary;
   }
 
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 textarea {
   height: 336px;
@@ -40,5 +40,9 @@ textarea {
     color: $primary;
   }
 
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
+}
+
+.inputEmail {
+  text-transform: lowercase;
 }
