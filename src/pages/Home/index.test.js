@@ -34,17 +34,22 @@ describe('When the page is created', () => {
     const titleEvent = screen.getByTestId('card-title-testid');
     expect(events && event && titleEvent).toBeInTheDocument();
   });
-  it('a list a people is displayed', () => {
+  it('a list of people is displayed', () => {
     render(<Home />);
     const peopleCardsList = screen.getByTestId('people-card-testid');
     expect(peopleCardsList).toBeInTheDocument();
     expect(screen.getByText('Samira'));
+    expect(screen.getByText('Luís'));
+    expect(screen.getByText('CXO'));
   });
   it('a footer is displayed', () => {
     render(<Home />);
     expect(screen.getByTestId('footer-testid')).toBeInTheDocument();
+    expect(screen.getByText('Contactez-nous'));
+    expect(screen.getByText('contact@724events.com'));
   });
   it('an event card, with the last event, is displayed', () => {
-    // to implement
+    render(<Home />);
+    expect(screen.getByLabelText('last-event-card'));
   });
 });
